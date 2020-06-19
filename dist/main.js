@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("throw new Error(\"Module parse failed: Unexpected token (14:1)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| ReactDOM.render(\\n> \\t<Provider store={store}>\\n| \\t\\t<Main />\\n| \\t</Provider>, // <-- Provider tag is for Redux\");\n\n//# sourceURL=webpack:///./client/index.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (10:1)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n| \\n| ReactDOM.render(\\n> \\t<Main />,\\n| \\tdocument.getElementById('app') // make sure this is the same as the id of the div in index.html\\n| );\");\n\n//# sourceURL=webpack:///./client/index.js?");
 
 /***/ }),
 

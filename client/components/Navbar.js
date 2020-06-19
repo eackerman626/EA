@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { Navbar, Button } from 'react-bootstrap';
 
-class Navbar extends Component {
+class Blah extends Component {
 	constructor() {
 		super();
 		this.handleButtonClick = this.handleButtonClick.bind(this);
@@ -15,19 +14,11 @@ class Navbar extends Component {
 
 	render() {
 		return (
-			<div className="navbar">
+			<Navbar className="navbar">
 				<Button className="my_button">Button</Button>
-			</div>
+			</Navbar>
 		);
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default Blah;
