@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Navbar, Container, Row, Col, Dropdown } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+
+import Navbar from './Navbar';
 
 class School extends Component {
 	constructor() {
 		super();
 		this.state = {
-			schoolName: '',
+			data: {},
 		};
 	}
 
@@ -15,8 +17,15 @@ class School extends Component {
 			const schoolData = await axios.get(
 				'https://api.data.gov/ed/collegescorecard/v1/schools?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=VfF1Gp7WmXYOJGXJHD0YSfuG1dP9cOmGqcNKIOwf'
 			);
-			console.log('this is what my school data looks like: ', schoolData.data.results);
-			this.setState({ schoolName: schoolData.data.results[0].school.name });
+			const data = {
+				schoolName: schoolData.data.results[0].school.name,
+				schoolSite: schoolData.data.results[0].school.school_url,
+				schoolCity: schoolData.data.results[0].school.city,
+				schoolState: schoolData.data.results[0].school.state,
+				schoolZip: schoolData.data.results[0].school.zip,
+				schoolAlias: schoolData.data.results[0].school.alias,
+			};
+			this.setState({ data: data });
 			console.log('this is the state: ', this.state);
 		} catch (err) {
 			console.log(err);
@@ -26,20 +35,10 @@ class School extends Component {
 	render() {
 		return (
 			<Container fluid>
-				<Navbar expand="lg" variant="light" bg="light" className="justify-content-between">
-					<Navbar.Brand href="/">Brand</Navbar.Brand>
-					<Dropdown>
-						<Dropdown.Toggle>Menu</Dropdown.Toggle>
-						<Dropdown.Menu alignRight>
-							<Dropdown.Item>Print</Dropdown.Item>
-							<Dropdown.Item>Save as PDF</Dropdown.Item>
-							<Dropdown.Item>Download Data</Dropdown.Item>
-						</Dropdown.Menu>
-					</Dropdown>
-				</Navbar>
+				<Navbar data={this.state.data} />
 				<Row>
 					<Col>
-						<h2 className="text-center">{this.state.schoolName}</h2>
+						<h2 className="text-center">{this.state.data.schoolName}</h2>
 					</Col>
 				</Row>
 			</Container>
