@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 
 class Navbar extends Component {
 	constructor() {
@@ -15,9 +16,7 @@ class Navbar extends Component {
 	render() {
 		return (
 			<div className="navbar">
-				<button type="button" className="example_btn">
-					Button
-				</button>
+				<Button className="my_button">Button</Button>
 			</div>
 		);
 	}
