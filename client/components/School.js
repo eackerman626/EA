@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import Navbar from './Navbar';
+import Header from './Header';
 
 class School extends Component {
 	constructor() {
@@ -36,11 +37,7 @@ class School extends Component {
 		return (
 			<Container fluid>
 				<Navbar data={this.state.data} />
-				<Row>
-					<Col>
-						<h2 className="text-center">{this.state.data.schoolName}</h2>
-					</Col>
-				</Row>
+				<Header data={this.state.data} />
 			</Container>
 		);
 	}
