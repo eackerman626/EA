@@ -18,7 +18,9 @@ class Header extends Component {
 			<>
 				<Row>
 					<Col className="text-center">
-						<h2>{data.schoolName}</h2>
+						<h2>
+							{data.schoolName} {data.schoolAlias ? '(' + data.schoolAlias + ')' : null}
+						</h2>
 					</Col>
 				</Row>
 				<Row>
@@ -31,7 +33,6 @@ class Header extends Component {
 						<a href={'http://' + data.schoolSite}>{data.schoolSite}</a>
 					</Col>
 				</Row>
-				{/* turn this into school total */}
 				<Row>
 					<Col className="text-center">
 						<h5>{data.schoolTotal ? 'Total students: ' + data.schoolTotal.toLocaleString() : null}</h5>

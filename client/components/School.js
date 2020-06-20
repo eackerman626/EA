@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import Navbar from './Navbar';
 import Header from './Header';
+import DonutChart from './DonutChart';
 import mostRecentYear from '../../utils/mostRecentYear';
 
 class School extends Component {
@@ -42,6 +43,17 @@ class School extends Component {
 			<Container fluid>
 				<Navbar data={this.state.data} />
 				<Header data={this.state.data} />
+				<Row>
+					<Col>
+						<DonutChart data={this.state.data} />
+					</Col>
+					<Col>
+						<DonutChart data={this.state.data} />
+					</Col>
+					<Col>
+						<DonutChart data={this.state.data} />
+					</Col>
+				</Row>
 			</Container>
 		);
 	}
