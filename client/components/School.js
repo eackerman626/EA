@@ -16,21 +16,22 @@ class School extends Component {
 
 	async componentDidMount() {
 		try {
-			const schoolData = await axios.get(
+			const response = await axios.get(
 				'https://api.data.gov/ed/collegescorecard/v1/schools?school.operating=1&2015.academics.program_available.assoc_or_bachelors=true&2015.student.size__range=1..&school.degrees_awarded.predominant__range=1..3&school.degrees_awarded.highest__range=2..4&id=240444&api_key=VfF1Gp7WmXYOJGXJHD0YSfuG1dP9cOmGqcNKIOwf'
 			);
+			const schoolData = response.data.results[0];
+			const year = mostRecentYear(schoolData);
 			const data = {
-				schoolName: schoolData.data.results[0].school.name,
-				schoolSite: schoolData.data.results[0].school.school_url,
-				schoolCity: schoolData.data.results[0].school.city,
-				schoolState: schoolData.data.results[0].school.state,
-				schoolZip: schoolData.data.results[0].school.zip,
-				schoolAlias: schoolData.data.results[0].school.alias,
-				// schoolTotal: schoolData.data.results[0].
+				schoolName: schoolData.school.name,
+				schoolSite: schoolData.school.school_url,
+				schoolCity: schoolData.school.city,
+				schoolState: schoolData.school.state,
+				schoolZip: schoolData.school.zip,
+				schoolAlias: schoolData.school.alias,
+				schoolTotal: schoolData[year].student.size,
 			};
 			this.setState({ data: data });
 			console.log('this is the state: ', this.state);
-			console.log('most recent year output: ', mostRecentYear(schoolData.data.results[0]));
 		} catch (err) {
 			console.log(err);
 		}

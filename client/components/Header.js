@@ -34,7 +34,7 @@ class Header extends Component {
 				{/* turn this into school total */}
 				<Row>
 					<Col className="text-center">
-						<h5>{data.schoolCity ? data.schoolCity + ', ' + data.schoolState + ' ' + data.schoolZip : null}</h5>
+						<h5>{data.schoolTotal ? 'Total students: ' + data.schoolTotal.toLocaleString() : null}</h5>
 					</Col>
 				</Row>
 			</>
