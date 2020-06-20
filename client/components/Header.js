@@ -31,6 +31,12 @@ class Header extends Component {
 						<a href={'http://' + data.schoolSite}>{data.schoolSite}</a>
 					</Col>
 				</Row>
+				{/* turn this into school total */}
+				<Row>
+					<Col className="text-center">
+						<h5>{data.schoolCity ? data.schoolCity + ', ' + data.schoolState + ' ' + data.schoolZip : null}</h5>
+					</Col>
+				</Row>
 			</>
 		);
 	}

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 
 import Navbar from './Navbar';
 import Header from './Header';
+import mostRecentYear from '../../utils/mostRecentYear';
 
 class School extends Component {
 	constructor() {
@@ -25,9 +26,11 @@ class School extends Component {
 				schoolState: schoolData.data.results[0].school.state,
 				schoolZip: schoolData.data.results[0].school.zip,
 				schoolAlias: schoolData.data.results[0].school.alias,
+				// schoolTotal: schoolData.data.results[0].
 			};
 			this.setState({ data: data });
 			console.log('this is the state: ', this.state);
+			console.log('most recent year output: ', mostRecentYear(schoolData.data.results[0]));
 		} catch (err) {
 			console.log(err);
 		}
