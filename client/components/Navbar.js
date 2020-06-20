@@ -5,17 +5,18 @@ import { Navbar, Dropdown } from 'react-bootstrap';
 class MyNavbar extends Component {
 	constructor() {
 		super();
-		this.handleButtonClick = this.handleButtonClick.bind(this);
+		this.handlePdfClick = this.handlePdfClick.bind(this);
 	}
 
 	componentDidMount() {}
 
-	handleButtonClick() {}
+	handlePdfClick() {
+		const element = document.getElementById('app');
+		html2pdf(element);
+	}
 
 	render() {
 		const data = this.props.data;
-		var element = document.getElementById('element-to-print');
-		html2pdf(element);
 		return (
 			<Navbar expand="lg" variant="light" bg="light" className="justify-content-between">
 				<Navbar.Brand href="/">Home</Navbar.Brand>
@@ -23,7 +24,7 @@ class MyNavbar extends Component {
 					<Dropdown.Toggle>Menu</Dropdown.Toggle>
 					<Dropdown.Menu alignRight>
 						<Dropdown.Item onClick={window.print}>Print</Dropdown.Item>
-						<Dropdown.Item>Save as PDF</Dropdown.Item>
+						<Dropdown.Item onClick={this.handlePdfClick}>Save as PDF</Dropdown.Item>
 						<Dropdown.Item>Download Data</Dropdown.Item>
 					</Dropdown.Menu>
 				</Dropdown>
