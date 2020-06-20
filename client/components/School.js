@@ -6,6 +6,8 @@ import Navbar from './Navbar';
 import Header from './Header';
 import DonutChart from './DonutChart';
 import mostRecentYear from '../../utils/mostRecentYear';
+import createData from '../../utils/createData';
+import createDebtData from '../../utils/createDebtData';
 
 class School extends Component {
 	constructor() {
@@ -30,6 +32,9 @@ class School extends Component {
 				schoolZip: schoolData.school.zip,
 				schoolAlias: schoolData.school.alias,
 				schoolTotal: schoolData[year].student.size,
+				schoolPrograms: createData(schoolData[year].academics.program_percentage),
+				schoolDemographics: createData(schoolData[year].student.demographics.race_ethnicity),
+				schoolDebt: createDebtData(schoolData[year].aid.federal_loan_rate),
 			};
 			this.setState({ data: data });
 			console.log('this is the state: ', this.state);
@@ -45,13 +50,10 @@ class School extends Component {
 				<Header data={this.state.data} />
 				<Row>
 					<Col>
-						<DonutChart data={this.state.data} />
-					</Col>
-					<Col>
-						<DonutChart data={this.state.data} />
-					</Col>
-					<Col>
-						<DonutChart data={this.state.data} />
+						{/* {text-align: center} */}
+						{this.state.data.schoolPrograms ? <DonutChart data={this.state.data.schoolPrograms} /> : null}
+						{this.state.data.schoolDemographics ? <DonutChart data={this.state.data.schoolDemographics} /> : null}
+						{this.state.data.schoolDebt ? <DonutChart data={this.state.data.schoolDebt} /> : null}
 					</Col>
 				</Row>
 			</Container>
