@@ -1,31 +1,30 @@
+import randomColor from 'randomcolor';
+
 export default (schoolPrograms) => {
 	const data = [];
 	for (const program in schoolPrograms) {
 		if (schoolPrograms[program] > 0) {
 			const dataObj = {
 				count: schoolPrograms[program],
-				color: '#151ee4',
-				name: program,
+				color: randomColor({ hue: 'blue' }),
+				name: capitalize(program),
 			};
 			data.push(dataObj);
 		}
 	}
+	data.sort((a, b) => {
+		if (a.count > b.count) {
+			return 1;
+		} else return -1;
+	});
+
 	return data;
 };
 
-// random hex color generator: https://css-tricks.com/snippets/javascript/random-hex-color/
-
-// 		const data = [
-//     {
-//         count: 20, // Value of the property. Required.
-//         color: '#0000FF', // Color code for the pie's color. Required.
-//         name: 'Blue', // Optional value. Used to display in the tooltip.
-//     },
-// ];
-
-// schoolPrograms = {
-//     agriculture: .024,
-//     architecture: .033,
-//     biology: .17,
-//     ...
-// }
+const capitalize = (str) => {
+	const wordsAry = str.split('_');
+	const capWordsAry = wordsAry.map((word) => {
+		return word[0].toUpperCase() + word.slice(1);
+	});
+	return capWordsAry.join(' ');
+};

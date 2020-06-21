@@ -1,14 +1,15 @@
-// receive just a percentage of students withd debt
+import randomColor from 'randomcolor';
+
 export default (debtPercent) => {
 	return [
 		{
 			count: debtPercent,
-			color: '#0000FF',
+			color: randomColor({ hue: 'blue' }),
 			name: 'With Federal Debt',
 		},
 		{
 			count: 1 - debtPercent,
-			color: '#00FF00',
+			color: randomColor({ hue: 'blue' }),
 			name: 'Without Federal Debt',
 		},
 	];

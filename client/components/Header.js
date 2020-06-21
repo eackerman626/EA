@@ -17,7 +17,7 @@ class Header extends Component {
 		return (
 			<>
 				<Row>
-					<Col className="text-center">
+					<Col className="text-center" id="school_title">
 						<h2>
 							{data.schoolName} {data.schoolAlias ? '(' + data.schoolAlias + ')' : null}
 						</h2>

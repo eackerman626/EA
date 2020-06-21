@@ -39,6 +39,7 @@
 		"passport-google-oauth": "^2.0.0",
 		"pg": "^8.0.2",
 		"pg-hstore": "^2.3.3",
+		"randomcolor": "^0.5.4",
 		"react": "^16.13.1",
 		"react-bootstrap": "^1.0.1",
 		"react-d3-donut": "^1.1.2",

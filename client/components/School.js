@@ -48,13 +48,19 @@ class School extends Component {
 			<Container fluid>
 				<Navbar data={this.state.data} />
 				<Header data={this.state.data} />
-				<Row>
-					<Col>
-						{/* {text-align: center} */}
-						{this.state.data.schoolPrograms ? <DonutChart data={this.state.data.schoolPrograms} /> : null}
-						{this.state.data.schoolDemographics ? <DonutChart data={this.state.data.schoolDemographics} /> : null}
-						{this.state.data.schoolDebt ? <DonutChart data={this.state.data.schoolDebt} /> : null}
-					</Col>
+				<Row className="justify-content-around m-2">
+					<div className="pie_container m-1">
+						<div className="pie_title">Students Enrolled in Each Program</div>
+						{this.state.data.schoolPrograms ? <DonutChart pieClass="pie1" data={this.state.data.schoolPrograms} /> : null}
+					</div>
+					<div className="pie_container m-1">
+						<div className="pie_title">Students' Race and Ethnicity</div>
+						{this.state.data.schoolDemographics ? <DonutChart pieClass="pie2" data={this.state.data.schoolDemographics} /> : null}
+					</div>
+					<div className="pie_container m-1">
+						<div className="pie_title">Students with Federal Debt</div>
+						{this.state.data.schoolDebt ? <DonutChart pieClass="pie3" data={this.state.data.schoolDebt} /> : null}
+					</div>
 				</Row>
 			</Container>
 		);
