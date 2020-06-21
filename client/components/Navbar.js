@@ -32,7 +32,7 @@ class MyNavbar extends Component {
 	render() {
 		const data = this.props.data;
 		return (
-			<Navbar expand="lg" variant="light" bg="light" className="justify-content-between">
+			<Navbar fluid variant="light" bg="light" className="justify-content-between">
 				<Navbar.Brand href="/">Home</Navbar.Brand>
 				<Dropdown>
 					<Dropdown.Toggle>Menu</Dropdown.Toggle>

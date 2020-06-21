@@ -16,5 +16,33 @@
 }
 
 #school_title {
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-family: serif;
+	margin-top: 1rem;
+}
+
+.school_info {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.separator {
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+}
+
+.background_color {
+	background-color: rgb(224, 237, 241);
+}
+
+html,
+body,
+#app,
+#app > div,
+.page_container {
+	height: 100%;
+}
+
+#container {
+	padding: 0%;
 }

@@ -45,10 +45,10 @@ class School extends Component {
 
 	render() {
 		return (
-			<Container fluid>
+			<Container fluid="lg" className="background_color" id="container">
 				<Navbar data={this.state.data} />
 				<Header data={this.state.data} />
-				<Row className="justify-content-around m-2">
+				<Row className="justify-content-around m-2 background_color">
 					<div className="pie_container m-1">
 						<div className="pie_title">Students Enrolled in Each Program</div>
 						{this.state.data.schoolPrograms ? <DonutChart pieClass="pie1" data={this.state.data.schoolPrograms} /> : null}

@@ -17,24 +17,20 @@ class Header extends Component {
 		return (
 			<>
 				<Row>
-					<Col className="text-center" id="school_title">
-						<h2>
+					<Col className="text-left ml-3">
+						<h1 id="school_title">
 							{data.schoolName} {data.schoolAlias ? '(' + data.schoolAlias + ')' : null}
-						</h2>
+						</h1>
 					</Col>
 				</Row>
 				<Row>
-					<Col className="text-center">
-						<h5>{data.schoolCity ? data.schoolCity + ', ' + data.schoolState + ' ' + data.schoolZip : null}</h5>
-					</Col>
-				</Row>
-				<Row>
-					<Col className="text-center">
-						<a href={'http://' + data.schoolSite}>{data.schoolSite}</a>
-					</Col>
-				</Row>
-				<Row>
-					<Col className="text-center">
+					<Col className="text-left ml-3 school_info">
+						<h5>{data.schoolCity ? data.schoolCity + ', ' + data.schoolState + ' ' + data.schoolZip.slice(0, 5) : null}</h5>
+						<h5 className="separator"> | </h5>
+						<h5>
+							<a href={'http://' + data.schoolSite}>{data.schoolSite}</a>
+						</h5>
+						<h5 className="separator"> | </h5>
 						<h5>{data.schoolTotal ? 'Total students: ' + data.schoolTotal.toLocaleString() : null}</h5>
 					</Col>
 				</Row>
