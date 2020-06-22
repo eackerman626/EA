@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Card } from 'react-bootstrap';
 
 import Navbar from './Navbar';
 import Header from './Header';
@@ -49,18 +49,9 @@ class School extends Component {
 				<Navbar data={this.state.data} />
 				<Header data={this.state.data} />
 				<Row className="justify-content-around m-2 background_color">
-					<div className="pie_container m-1">
-						<div className="pie_title">Students Enrolled in Each Program</div>
-						{this.state.data.schoolPrograms ? <DonutChart pieClass="pie1" data={this.state.data.schoolPrograms} /> : null}
-					</div>
-					<div className="pie_container m-1">
-						<div className="pie_title">Students' Race and Ethnicity</div>
-						{this.state.data.schoolDemographics ? <DonutChart pieClass="pie2" data={this.state.data.schoolDemographics} /> : null}
-					</div>
-					<div className="pie_container m-1">
-						<div className="pie_title">Students with Federal Debt</div>
-						{this.state.data.schoolDebt ? <DonutChart pieClass="pie3" data={this.state.data.schoolDebt} /> : null}
-					</div>
+					{this.state.data.schoolPrograms ? <DonutChart pieClass="pie1" data={this.state.data.schoolPrograms} title="Students Enrolled in Each Program" /> : null}
+					{this.state.data.schoolDemographics ? <DonutChart pieClass="pie2" data={this.state.data.schoolDemographics} title="Students' Race and Ethnicity" /> : null}
+					{this.state.data.schoolDebt ? <DonutChart pieClass="pie3" data={this.state.data.schoolDebt} title="Students with Federal Debt" /> : null}
 				</Row>
 			</Container>
 		);
