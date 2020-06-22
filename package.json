@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start-dev": "npm run build && npm run start",
-		"build": "webpack-dev-server --config ./webpack.config.js",
+		"build": "webpack --config ./webpack.config.js",
 		"start": "echo 'Running server for production - developers, use npm run start-dev for development' && node ./start.js"
 	},
 	"author": "",
