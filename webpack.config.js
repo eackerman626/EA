@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
 	entry: ['@babel/polyfill', './client/index.js'],
-	mode: 'production',
+	mode: 'development',
 	devServer: {
 		contentBase: path.join(__dirname, 'public'),
 		compress: true,
