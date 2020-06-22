@@ -3,6 +3,8 @@ import html2pdf from 'html2pdf.js';
 import { saveAs } from 'file-saver';
 import { Navbar, Dropdown } from 'react-bootstrap';
 
+import createJsonData from '../../utils/createJsonData';
+
 class MyNavbar extends Component {
 	constructor() {
 		super();
@@ -16,7 +18,7 @@ class MyNavbar extends Component {
 	}
 
 	handleJsonClick() {
-		const jsonData = this.props.data;
+		const jsonData = createJsonData(this.props.data);
 		const fileName = 'schoolData.json';
 
 		const fileToSave = new Blob([JSON.stringify(jsonData)], {
