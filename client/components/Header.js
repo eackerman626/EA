@@ -3,15 +3,6 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 class Header extends Component {
-	constructor() {
-		super();
-		this.handleButtonClick = this.handleButtonClick.bind(this);
-	}
-
-	componentDidMount() {}
-
-	handleButtonClick() {}
-
 	render() {
 		const data = this.props.data;
 		return (

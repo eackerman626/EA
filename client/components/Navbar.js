@@ -10,8 +10,6 @@ class MyNavbar extends Component {
 		this.handleJsonClick = this.handleJsonClick.bind(this);
 	}
 
-	componentDidMount() {}
-
 	handlePdfClick() {
 		const element = document.getElementById('app');
 		html2pdf(element);
@@ -32,7 +30,7 @@ class MyNavbar extends Component {
 	render() {
 		const data = this.props.data;
 		return (
-			<Navbar fluid variant="light" bg="light" className="justify-content-between">
+			<Navbar fluid variant="dark" bg="dark" className="justify-content-between">
 				<Navbar.Brand href="/">Home</Navbar.Brand>
 				<Dropdown>
 					<Dropdown.Toggle>Menu</Dropdown.Toggle>
