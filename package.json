@@ -44,6 +44,7 @@
 		"react-bootstrap": "^1.0.1",
 		"react-d3-donut": "^1.1.2",
 		"react-d3-library": "^1.1.8",
+		"react-device-detect": "^1.13.1",
 		"react-dom": "^16.13.1",
 		"react-redux": "^7.2.0",
 		"react-router-dom": "^5.1.2",

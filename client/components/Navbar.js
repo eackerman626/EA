@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import html2pdf from 'html2pdf.js';
 import { saveAs } from 'file-saver';
 import { Navbar, Dropdown } from 'react-bootstrap';
+import { isMobile } from 'react-device-detect';
 
 import createJsonData from '../../utils/createJsonData';
 
@@ -34,14 +35,16 @@ class MyNavbar extends Component {
 		return (
 			<Navbar fluid variant="dark" bg="dark" className="justify-content-between">
 				<Navbar.Brand href="/">Home</Navbar.Brand>
-				<Dropdown>
-					<Dropdown.Toggle>Menu</Dropdown.Toggle>
-					<Dropdown.Menu alignRight>
-						<Dropdown.Item onClick={window.print}>Print</Dropdown.Item>
-						<Dropdown.Item onClick={this.handlePdfClick}>Save as PDF</Dropdown.Item>
-						<Dropdown.Item onClick={this.handleJsonClick}>Download Data</Dropdown.Item>
-					</Dropdown.Menu>
-				</Dropdown>
+				{!isMobile ? (
+					<Dropdown>
+						<Dropdown.Toggle>Menu</Dropdown.Toggle>
+						<Dropdown.Menu alignRight>
+							<Dropdown.Item onClick={window.print}>Print</Dropdown.Item>
+							<Dropdown.Item onClick={this.handlePdfClick}>Save as PDF</Dropdown.Item>
+							<Dropdown.Item onClick={this.handleJsonClick}>Download Data</Dropdown.Item>
+						</Dropdown.Menu>
+					</Dropdown>
+				) : null}
 			</Navbar>
 		);
 	}
